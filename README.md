@@ -1,6 +1,5 @@
 # 🎬 Netflix Movies Analysis (1990s) - Python Project
 
-![Histogram of Movie Durations](images/duration_distribution.png)
 ![Netflix movie data visualization](https://github.com/user-attachments/assets/b7f946a9-771d-4bec-a448-c4b710c61fc4)
 
 ## 📌 Project Objectives
@@ -41,10 +40,3 @@ plt.xlabel("Duration in minutes")
 plt.title("Distribution of Movie Durations in the 90's")
 plt.grid(True)
 
- Project Structure
-netflix-analysis/
-├── data/                 # Original and cleaned datasets
-├── notebooks/            # Jupyter analysis notebooks
-├── reports/              # Visualizations and findings
-├── netflix_analysis.py   # Main analysis script
-└── requirements.txt
