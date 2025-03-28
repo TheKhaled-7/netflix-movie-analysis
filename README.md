@@ -11,7 +11,7 @@ This project addresses the main questions about Netflix movies from the nineties
 ## 🔍 Key Findings
 | Metric | Value | Insight |
 |--------|-------|---------|
-| **Total 1990s Movies Analyzed** | `len(theMoviesIn90s)` | Complete dataset of 1990s films |
+| **Total 1990s Movies Analyzed** | 127 Movie | Complete dataset of 1990s films |
 | **Most Frequent Duration** | 94 mins | Peak in histogram (Mode) |
 | **Short Action Movies (<90 mins)** | 15 | 12% of all action films |
 
