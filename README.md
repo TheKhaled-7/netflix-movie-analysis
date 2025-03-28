@@ -20,19 +20,31 @@ This project addresses the main questions about Netflix movies from the nineties
 ### Data Processing
 ```python
 # Cleaned and filtered 1990s movies
-movies_90s = df[
-    (df['type'] == 'Movie') & 
-    (df['release_year'].between(1990, 1999))
+theMoviesIn90s = Netflix_Shows_df[
+(Netflix_Shows_df['type'] == 'Movie') &
+(Netflix_Shows_df['release_year'] >= 1990) &
+(Netflix_Shows_df['release_year'] <= 1999)
 ]
 
 Statistical Analysis
 # Calculated mode of durations
-duration_mode = movies_90s['duration'].mode()[0]
+duration_count = theMoviesIn90s['duration'].value_counts()
+MostCommonDuration = duration_count.idxmax()
 
 # Counted short action films
-short_actions = action_movies[action_movies['duration'] < 90].shape[0]
+short_action_movie_in90s = action_movie_in90s[action_movie_in90s['duration'] < 90].shape[0]
 
 Visualization
-plt.hist(movies_90s['duration'], bins=20)
-plt.title('1990s Netflix Movies Duration Distribution')
+plt.hist(theMoviesIn90s['duration'], bins=20, color='blue',  edgecolor='black')
+plt.ylabel("Frequency")
+plt.xlabel("Duration in minutes")
+plt.title("Distribution of Movie Durations in the 90's")
+plt.grid(True)
 
+ Project Structure
+netflix-analysis/
+├── data/                 # Original and cleaned datasets
+├── notebooks/            # Jupyter analysis notebooks
+├── reports/              # Visualizations and findings
+├── netflix_analysis.py   # Main analysis script
+└── requirements.txt
