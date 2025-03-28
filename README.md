@@ -45,25 +45,15 @@ plt.grid(True)
 ```
 netflix-movie-analysis/
 ├── data/
-│   └── netflix_data.csv          # Original dataset
+│   └── netflix_data.csv        
 ├── notebooks/
-│   └── analysis.ipynb            # Jupyter notebook (optional)
+│   └── analysis.ipynb           
 ├── scripts/
-│   └── netflix_analysis.py       # Main analysis script
+│   └── netflix_analysis.py      
 ├── images/
-│   └── duration_distribution.png # Generated visualization
-├── .gitignore                   # Ignored files
-└── README.md                    # This file
+│   └── duration_distribution.png 
+├── .gitignore                   
+└── README.md                  
 ```
 
-## 💻 Code Output
-```bash
-$ python analysis.py
-Movies found in 90's:
-   duration
-0       94
-1       89
-2      127
 
-Most frequent duration: 94 minutes
-Short action movies: 15
