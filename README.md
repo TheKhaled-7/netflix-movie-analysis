@@ -1,14 +1,19 @@
-# netflix-movie-analysis
-📊 Netflix Movies Analysis (1990s) | Python  
-Analyzes movie durations &amp; genres from Netflix's 1990s catalog using: 
-- Pandas for data cleaning - Matplotlib for visualization
-- Statistical analysis
-- Key findings:
-- ✅ Most common duration: 94 mins
-- ✅ 15 short action movies (&lt;90 mins)
-- ✅ Duration distribution trends
-  
--![Netflix movie data visualization](https://github.com/user-attachments/assets/9872a687-5f29-42f1-89ec-85c227ab0479)
+# 🎬 Netflix Movies Analysis (1990s) - Python Project
 
-- #DataAnalysis #Python #Netflix
+![Histogram of Movie Durations](images/duration_distribution.png)
+![Netflix movie data visualization](https://github.com/user-attachments/assets/b7f946a9-771d-4bec-a448-c4b710c61fc4)
+
+📌 Project Objectives
+This project addresses the main questions about Netflix movies from the nineties:
+1. Extraction of films produced in the nineties 
+2. extracting the most movie duration that was repeated in this period 
+3. Number of short action films (<90 minutes)
+
+🔍 Key Findings
+| Metric | Value | Insight |
+|--------|-------|---------|
+| Most Frequent Duration | 93 mins | Peak in histogram (Mode) |
+| Short Action Movies | 15 | 12% of total action films |
+| Avg. Duration | 98 mins | Right-skewed distribution |
+
 
