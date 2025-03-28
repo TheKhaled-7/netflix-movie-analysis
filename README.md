@@ -40,20 +40,4 @@ plt.xlabel("Duration in minutes")
 plt.title("Distribution of Movie Durations in the 90's")
 plt.grid(True)
 
-## 📂 Project Structure (تحديث)
-
-```
-netflix-movie-analysis/
-├── data/
-│   └── netflix_data.csv        
-├── notebooks/
-│   └── analysis.ipynb           
-├── scripts/
-│   └── netflix_analysis.py      
-├── images/
-│   └── duration_distribution.png 
-├── .gitignore                   
-└── README.md                  
-```
-
 
