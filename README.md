@@ -1,4 +1,4 @@
-# 🎬 Netflix Movies Analysis (1990s) - Python Project
+# 🎬 Netflix Movies Analysis (1990s) - Python 
 
 ![Netflix movie data visualization](https://github.com/user-attachments/assets/b7f946a9-771d-4bec-a448-c4b710c61fc4)
 
