@@ -10,22 +10,7 @@ Netflix_Shows_df = pd.DataFrame(Netflix_Shows)
 theMoviesIn90s = Netflix_Shows_df[(Netflix_Shows_df['type'] == 'Movie') &
                                   (Netflix_Shows_df['release_year'] >= 1990) &
                                   (Netflix_Shows_df['release_year'] <= 1999)]
-
-# find the most frequent movie duration
-duration_count = theMoviesIn90s['duration'].value_counts()
-MostCommonDuration = duration_count.idxmax()
-if theMoviesIn90s.empty:
-    print("No movies found in 90's.")
-else:
-    print("Movies found in 90's : ")
-    print(theMoviesIn90s[['duration']].head())
-    print(f"The most frequent movie duration in the 90's is {MostCommonDuration} minutes")
-plt.hist(theMoviesIn90s['duration'], bins=20, color='blue',  edgecolor='black')
-plt.ylabel("Frequency")
-plt.xlabel("Duration in minutes")
-plt.title("Distribution of Movie Durations in the 90's")
-plt.grid(True)
-plt.show()
+CountOfMoviesIn90s = theMoviesIn90s.shape[0]
 
 # count the number of short action movies from the 90's
 action_movie_in90s = Netflix_Shows_df[(Netflix_Shows_df['type'] == 'Movie') & 
@@ -33,4 +18,19 @@ action_movie_in90s = Netflix_Shows_df[(Netflix_Shows_df['type'] == 'Movie') &
                                   (Netflix_Shows_df['release_year'] <= 1999) & 
                                   (Netflix_Shows_df['genre'].str.contains('Action', case =False))]
 short_action_movie_in90s = action_movie_in90s[action_movie_in90s['duration'] < 90].shape[0]
-print(f"Number of short action movies in the 90's: {short_action_movie_in90s}")
+
+# find the most frequent movie duration
+duration_count = theMoviesIn90s['duration'].value_counts()
+MostCommonDuration = duration_count.idxmax()
+if theMoviesIn90s.empty:
+    print("No movies found in 90's.")
+else:
+    print(f"Movies found in 90's: {CountOfMoviesIn90s}")
+    print(f"The most frequent movie duration in the 90's is {MostCommonDuration} minutes")
+    print(f"Number of short action movies in the 90's: {short_action_movie_in90s}")
+plt.hist(theMoviesIn90s['duration'], bins=20, color='blue',  edgecolor='black')
+plt.ylabel("Frequency")
+plt.xlabel("Duration in minutes")
+plt.title("Distribution of Movie Durations in the 90's")
+plt.grid(True)
+plt.show()
