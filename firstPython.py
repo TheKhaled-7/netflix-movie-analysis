@@ -2,35 +2,43 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import os
-file_path = os.path.join(os.path.expanduser('~'), 'Downloads', 'netflix_data.csv')
-Netflix_Shows = pd.read_csv(file_path, index_col=0)
-Netflix_Shows_df = pd.DataFrame(Netflix_Shows)
 
-# filter the data for movies released in the 90's
-theMoviesIn90s = Netflix_Shows_df[(Netflix_Shows_df['type'] == 'Movie') &
-                                  (Netflix_Shows_df['release_year'] >= 1990) &
-                                  (Netflix_Shows_df['release_year'] <= 1999)]
-CountOfMoviesIn90s = theMoviesIn90s.shape[0]
+# Load the dataset
+netflix_df = pd.read_csv("netflix_data.csv")
 
-# count the number of short action movies from the 90's
-action_movie_in90s = Netflix_Shows_df[(Netflix_Shows_df['type'] == 'Movie') & 
-                                  (Netflix_Shows_df['release_year'] >= 1990) & 
-                                  (Netflix_Shows_df['release_year'] <= 1999) & 
-                                  (Netflix_Shows_df['genre'].str.contains('Action', case =False))]
-short_action_movie_in90s = action_movie_in90s[action_movie_in90s['duration'] < 90].shape[0]
+# Filter only movies released in the 1990s (1990–1999)
+movies_90s = netflix_df[
+    (netflix_df['type'] == 'Movie') &
+    (netflix_df['release_year'] >= 1990) &
+    (netflix_df['release_year'] <= 1999)
+]
 
-# find the most frequent movie duration
-duration_count = theMoviesIn90s['duration'].value_counts()
-MostCommonDuration = duration_count.idxmax()
-if theMoviesIn90s.empty:
-    print("No movies found in 90's.")
+# Count how many movies were released in the 1990s
+movies_count_90s = movies_90s.shape[0]
+
+# Find the most frequent movie duration in the 1990s
+duration_count = movies_90s['duration'].value_counts()
+duration = int(duration_count.idxmax())  # save as integer
+
+# Filter short action movies (duration < 90 minutes)
+short_action_movies = movies_90s[
+    (movies_90s['genre'].str.contains("Action", case=False, na=False)) &
+    (movies_90s['duration'] < 90)
+]
+short_movie_count = short_action_movies.shape[0]
+
+# Print the results
+if movies_90s.empty:
+    print("No movies found in the 1990s.")
 else:
-    print(f"Movies found in 90's: {CountOfMoviesIn90s}")
-    print(f"The most frequent movie duration in the 90's is {MostCommonDuration} minutes")
-    print(f"Number of short action movies in the 90's: {short_action_movie_in90s}")
-plt.hist(theMoviesIn90s['duration'], bins=20, color='blue',  edgecolor='black')
+    print(f"Movies in the 1990s: {movies_count_90s}")
+    print(f"Most frequent movie duration: {duration} minutes")
+    print(f"Number of short action movies (<90 min): {short_movie_count}")
+
+# Plot histogram of movie durations
+plt.hist(movies_90s['duration'], bins=20, color='blue', edgecolor='black')
 plt.ylabel("Frequency")
-plt.xlabel("Duration in minutes")
-plt.title("Distribution of Movie Durations in the 90's")
+plt.xlabel("Duration (minutes)")
+plt.title("Distribution of Movie Durations in the 1990s")
 plt.grid(True)
 plt.show()
